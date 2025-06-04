@@ -7,6 +7,9 @@ from metadata.download import download_video
 
 from utils.logger import logger 
 
+# Monitoring
+from monitoring.metrics_server import search_counter, download_counter, delete_counter, download_duration_histogram
+
 def start_gui():
     root = tk.Tk() # Create the main window
     root.title("Video Metadata Manager") # Set the window title
@@ -32,6 +35,7 @@ def start_gui():
             id = row[0]
             if keyword in title.lower():
                 result_box.insert(tk.END, f"🎥 {id} | {title} | Duration: {row[2]} | Format: {row[3]}") # tk.END means add it to end of the list
+        search_counter.inc()
         logger.info(f"Search completed for keyword: {keyword}") # Log the search action
         
     def delete():
@@ -51,6 +55,7 @@ def start_gui():
             search() # Refresh list
         else:
             messagebox.showerror("Error", f"❌ No video found with ID: {id}.")
+        delete_counter.inc()
         logger.info(f"Delete action performed for ID: {id}") # Log the delete action
         
     def download():
@@ -65,7 +70,6 @@ def start_gui():
         
         # Now we need to fetch url from looking into db with help of id to download
         data = fetch_db()
-        print("Data:", data)
         url = None
         
         for row in data:
@@ -77,9 +81,11 @@ def start_gui():
             print("❌ No URL found for the selected video.")
             return
         
+        download_counter.inc()
         # download the video
         try:
-            download_video(url)
+            with download_duration_histogram.time(): # .time() method of a Histogram: -- start the timer
+                download_video(url)
             messagebox.showinfo("Success", f"✅ Downloaded video with ID: {id}.")
         except Exception as e:
             messagebox.showerror("Error", f"❌ Failed to download video: {str(e)}")

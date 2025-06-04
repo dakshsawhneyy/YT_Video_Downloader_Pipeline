@@ -48,3 +48,38 @@
 2025-06-04T09:04:51.187173+0000 INFO Logger initialized successfully.
 2025-06-04T09:06:27.084193+0000 INFO Logger initialized successfully.
 2025-06-04T09:07:25.235482+0000 INFO Logger initialized successfully.
+2025-06-04T12:14:48.735074+0000 INFO Logger initialized successfully.
+2025-06-04T12:15:42.869165+0000 INFO Logger initialized successfully.
+2025-06-04T12:16:34.362194+0000 INFO Logger initialized successfully.
+2025-06-04T12:17:19.444203+0000 INFO 🔵 Table 'videos_metadata' created or already exists.🟣
+2025-06-04T12:18:55.757734+0000 INFO Logger initialized successfully.
+2025-06-04T12:19:04.790203+0000 INFO 🔵 Table 'videos_metadata' created or already exists.🟣
+2025-06-04T12:19:04.825594+0000 INFO Inserted metadata for video: 10 Second Timer - Pineapple Explosion
+2025-06-04T12:41:31.311656+0000 INFO Logger initialized successfully.
+2025-06-04T12:41:45.541241+0000 INFO Search completed for keyword: 
+2025-06-04T12:41:48.761099+0000 INFO Clearing all results from the listbox.
+2025-06-04T12:41:49.744593+0000 INFO Search completed for keyword: 
+2025-06-04T12:41:50.773371+0000 INFO Clearing all results from the listbox.
+2025-06-04T12:41:56.598119+0000 INFO Search completed for keyword: 
+2025-06-04T12:42:45.403171+0000 INFO Logger initialized successfully.
+2025-06-04T12:43:03.354277+0000 INFO 🔵 Table 'videos_metadata' created or already exists.🟣
+2025-06-04T12:43:47.955055+0000 INFO Logger initialized successfully.
+2025-06-04T12:44:06.664481+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:06.772766+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:06.896089+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:07.001080+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:07.118044+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:07.225357+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:07.347947+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:07.453532+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:07.575930+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:07.686342+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:07.808471+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:07.920789+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:23.973778+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:26.656190+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:26.780224+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:26.870799+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:26.995187+0000 INFO Search completed for keyword: 
+2025-06-04T12:44:27.100617+0000 INFO Search completed for keyword: 
+2025-06-04T12:45:09.902508+0000 INFO Download action performed for ID: 3

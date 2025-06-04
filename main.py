@@ -33,8 +33,13 @@ from Gui.gui_interface import start_gui
 # Logging
 from utils.logger import logger
 
+# prometheus
+from monitoring.metrics_server import run_metrics_server_in_thread
+
 if __name__ == "__main__":    
-    
+        
+    run_metrics_server_in_thread()  # Expose metrics to http 8000 port
+        
     # Need to give condition for passing two parse_args fxns
     if any(arg in ["--list", "--filter", "--search", "--delete"] for arg in sys.argv):
         args_cli = arg_parser_cli()     # Passing cli_interface one
@@ -69,9 +74,10 @@ if __name__ == "__main__":
         
         # GUI mode ---------- for docker -------------
         if not args.cli:
-            print("🎨 Launching GUI mode...")
-            start_gui()
-            exit()
+            if args.gui:
+                print("🎨 Launching GUI mode...")
+                start_gui()
+                exit()
         else:
             print("💻 CLI extract/download mode active...")
         # ---------------------------------------------
@@ -98,3 +104,4 @@ if __name__ == "__main__":
         
         if args.download:
             download_video(url)
+            
