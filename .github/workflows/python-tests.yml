@@ -28,6 +28,7 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
           pip install yt-dlp
+          pip install loguru
 
       - name: Run tests
         run: |
