@@ -2,6 +2,7 @@ from yt_dlp import YoutubeDL
 import sqlite3
 from datetime import timedelta
 
+from utils.logger import logger
 
 def insert_db(info, duration):
     # Connect to sqlite
@@ -19,6 +20,7 @@ def insert_db(info, duration):
     conn.commit()
     conn.close()
 
+    logger.info(f"Inserted metadata for video: {info.get('title')}")
     print("✅ Metadata inserted into SQLite database. \n")
     
 if __name__ == "__main__":

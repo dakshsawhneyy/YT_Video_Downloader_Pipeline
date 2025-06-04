@@ -30,6 +30,9 @@ from metadata.delete_from_db import delete_db
 # GUI
 from Gui.gui_interface import start_gui
 
+# Logging
+from logger.logger import logger
+
 if __name__ == "__main__":    
     
     # GUI
@@ -51,6 +54,7 @@ if __name__ == "__main__":
             matches = find_entries_by_keyword(args_cli.delete)
             if not matches:
                 print("❌ No entries found with that keyword.")
+                logger.error(f"No entries found with keyword: {args_cli.delete}")
             else:
                 print("Found entries:")
                 for match in matches:
@@ -58,8 +62,10 @@ if __name__ == "__main__":
                 confirm = input(f"Are you sure want to delete these {len(matches)} entries? (y/n): ")
                 if confirm.lower() in ('y', 'yes'):
                     deleted = delete_db([row[0] for row in matches])
+                    logger.info(f"Deleted {deleted} entries with keyword: {args_cli.delete}")
                     print(f"✅ Deleted {deleted} entries.")
                 else:
+                    logger.info("Deletion cancelled by user.")
                     print("❎ Deletion cancelled.")
         else:
             print("❌ No valid option provided. Use --help for available commands.")
@@ -69,6 +75,7 @@ if __name__ == "__main__":
         info = ydl_instance_creation(url)
         if not info:
             print("❌ Failed to extract video info.")
+            logger.error("Failed to extract video info.")
             exit(1)
             
         duration = str(timedelta(seconds=info.get("duration")))

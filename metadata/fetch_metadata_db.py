@@ -1,4 +1,5 @@
 import sqlite3
+from utils.logger import logger
 
 def fetch_db():
     # Connect to db
@@ -20,7 +21,7 @@ def fetch_db():
         print(f"Format: {format}")
         # print(f"URL: {url}")
         print("-" * 30)
-        
+            
     # Close the Database
     conn.close()
     

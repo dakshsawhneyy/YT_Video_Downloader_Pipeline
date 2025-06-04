@@ -5,9 +5,7 @@ from metadata.fetch_metadata_db import fetch_db
 from metadata.delete_from_db import delete_db
 from metadata.download import download_video
 
-from Logging.logging import get_logger
-
-logger = get_logger()
+from utils.logger import logger 
 
 def start_gui():
     root = tk.Tk() # Create the main window

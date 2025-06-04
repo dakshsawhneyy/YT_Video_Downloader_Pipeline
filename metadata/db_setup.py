@@ -1,4 +1,5 @@
 import sqlite3
+from utils.logger import logger
 
 def db_setup():
     # opens or creates the DB file - Connect to database (creates file if not exists)
@@ -18,6 +19,7 @@ def db_setup():
         )
     ''')
 
+    logger.info("🔵 Table 'videos_metadata' created or already exists.🟣")
     print("🔵 Table 'videos_metadata' created or already exists.🟣 \n")
 
     conn.commit() # saves changes.
