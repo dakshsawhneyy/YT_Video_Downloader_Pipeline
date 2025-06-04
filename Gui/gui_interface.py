@@ -10,7 +10,7 @@ from utils.logger import logger
 def start_gui():
     root = tk.Tk() # Create the main window
     root.title("Video Metadata Manager") # Set the window title
-    root.geometry("600x450") # Set the window size
+    root.geometry("650x400") # Set the window size
     
     tk.Label(root, text="Search by Keyword", font=("Arial", 16)).pack(pady=10) # Creates a label (text on the window)
     
@@ -91,10 +91,42 @@ def start_gui():
         result_box.delete(0, tk.END) # Delete old results - clear listbox before showing results
         keyword_var.set("")
     
-    # search() # so user dont see empty list
-    tk.Button(root, text="Search", command=search).pack()
-    tk.Button(root, text="Delete Selected", command=delete).pack()
-    tk.Button(root, text="Download Selected Video", command=download).pack()
-    tk.Button(root, text="Clear Results", command=clear_all).pack() # Button to clear results
+    def show_logs():
+        log_window = tk.Toplevel(root) # Create a new window for logs
+        log_window.title(" Application Logs") # Set the title of the log window
+        log_window.geometry("700x400") # Set the size of the log window
+        
+        log_text = tk.Text(log_window, wrap=tk.WORD) # Create a Text widget to display logs
+        log_text.pack(expand=True, fill="both") # Add the Text widget to the log window
+
+        def update_logs():
+            try:
+                with open('logs/app.log', 'r') as f:
+                    content = f.read()
+                    log_text.delete("1.0", tk.END)  # was using 0 in listbox but in Text, we need to use "1.0" means delete from string 1 i.e. first line
+                    log_text.insert(tk.END, content) # Read the log file and insert its content into the Text widget
+                    log_text.see(tk.END) # Scroll to the end of the Text widget
+            except Exception as e:
+                log_text.delete("1.0", tk.END)
+                log_text.insert(tk.END, f"❌ Error reading log file: {str(e)}")
+            log_window.after(3000, update_logs) # Schedule the function to run every second
+        
+        update_logs()
+    
+    
+    # Creating a frame to hold the top row of buttons
+    button_frame = tk.Frame(root)
+    button_frame.pack(pady=20)
+
+    # Place the main action buttons inside button_frame (top row)
+    tk.Button(button_frame, text="Search", command=search).pack(side="left", padx=5)
+    tk.Button(button_frame, text="Delete Selected", command=delete).pack(side="left", padx=5)
+    tk.Button(button_frame, text="Download Selected Video", command=download).pack(side="left", padx=5)
+    tk.Button(button_frame, text="Clear Results", command=clear_all).pack(side="left", padx=5)
+
+    # Separate frame for the logs button (bottom row)
+    logs_frame = tk.Frame(root)
+    logs_frame.pack(pady=(0, 10))
+    tk.Button(logs_frame, text="Show Logs", command=show_logs).pack()
     
     root.mainloop() # Start the GUI event loop so it waits for user actions

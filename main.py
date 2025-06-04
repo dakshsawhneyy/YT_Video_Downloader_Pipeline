@@ -31,7 +31,7 @@ from metadata.delete_from_db import delete_db
 from Gui.gui_interface import start_gui
 
 # Logging
-from logger.logger import logger
+from utils.logger import logger
 
 if __name__ == "__main__":    
     
