@@ -3,6 +3,5 @@ venv/
 __pycache__/
 **/*.pyc
 *.pyc
-**/__init__.py
 **/mp4
 **/webm
