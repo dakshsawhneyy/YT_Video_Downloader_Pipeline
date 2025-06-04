@@ -117,7 +117,7 @@ Path: `.github/workflows/ci.yml`
 
 ---
 
-## Screenshots (optional)
+## Screenshots 
 
 > ![image](https://github.com/user-attachments/assets/a9129be8-c1df-4e09-bc23-ddf6d645979f)
 
