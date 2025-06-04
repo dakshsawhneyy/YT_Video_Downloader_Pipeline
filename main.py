@@ -35,11 +35,6 @@ from utils.logger import logger
 
 if __name__ == "__main__":    
     
-    # GUI
-    if "--gui" in sys.argv:
-        start_gui()
-        exit()
-    
     # Need to give condition for passing two parse_args fxns
     if any(arg in ["--list", "--filter", "--search", "--delete"] for arg in sys.argv):
         args_cli = arg_parser_cli()     # Passing cli_interface one
@@ -71,6 +66,16 @@ if __name__ == "__main__":
             print("❌ No valid option provided. Use --help for available commands.")
     else:
         args = parse_args_extract()
+        
+        # GUI mode ---------- for docker -------------
+        if not args.cli:
+            print("🎨 Launching GUI mode...")
+            start_gui()
+            exit()
+        else:
+            print("💻 CLI extract/download mode active...")
+        # ---------------------------------------------
+        
         url = args.url or input("Enter Url: ")
         info = ydl_instance_creation(url)
         if not info:

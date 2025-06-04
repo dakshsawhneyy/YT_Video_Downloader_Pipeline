@@ -34,7 +34,19 @@ def parse_args_extract():
         help="Add metadata to SQLite database"
     )
     
+    # Adding --cli tag for running inside docker
+    parser.add_argument(
+        "--cli",
+        action="store_true",
+        help="Run in CLI mode (for Docker compatibility)"
+    )
     
+    # Adding GUI Tag as well
+    parser.add_argument(
+        "--gui",
+        action="store_true",
+        help="Run in GUI mode"
+    )
     
     return parser.parse_args()
 
