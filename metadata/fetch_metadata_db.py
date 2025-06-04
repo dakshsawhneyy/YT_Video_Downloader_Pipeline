@@ -1,5 +1,4 @@
 import sqlite3
-from utils.logger import logger
 
 def fetch_db():
     # Connect to db
@@ -24,7 +23,7 @@ def fetch_db():
             
     # Close the Database
     conn.close()
-    
+    print(rows)
     return rows
 
 if __name__ == "__main__":

@@ -2,6 +2,7 @@ from yt_dlp import YoutubeDL
 import os
 import subprocess
 
+
 def download_video(url):
     output_dir = "downloads"
     
@@ -23,7 +24,8 @@ def download_video(url):
             ydl.download([url])
             print(f"✅ Download completed: saved in '{output_dir}'")
         except Exception as e:
-            print(f"❌ Download failed: {e}")
+            print(f"❌ Download failed:{type(e).__name__} {e}")     # type(e).__name__ provides type and __name__ convert it into string
+            raise # Re Raise the error to be caught in the calling function
             
     # Automatically call download.sh for moving files into their respective folders
     try:
