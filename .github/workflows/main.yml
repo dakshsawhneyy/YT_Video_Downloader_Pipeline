@@ -36,16 +36,11 @@ jobs:
   # Another Job; Build Docker Image
   image_scan:
     name: Build Docker Image and Run Docker Image
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # it comes with docker pre-installed
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Install Docker
-        uses: docker-practice/actions-setup-docker@v1  # prepackaged in github actions
-        with:
-          docker_version: '20.10'
 
       - name: Building the Image
         run: docker build -t myapp:latest .
