@@ -45,9 +45,18 @@ jobs:
       - name: Building the Image
         run: docker build -t myapp:latest .
 
-      - name: Scanning the Docker Image using DockerScout
+      - name: Install Docker Scout CLI
         run: |  # Multi Line Comments
           curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
           sh install-scout.sh
+
+      - name: Login to DockerHub
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: echo "DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+
+      - name: Docker Scout Scan
+        run: |
           docker scout quickview  
           docker scout cves
