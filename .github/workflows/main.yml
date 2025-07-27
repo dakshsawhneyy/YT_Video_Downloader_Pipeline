@@ -66,5 +66,5 @@ jobs:
         uses: docker/scout-action@v1.18.2
         with:
           dockerhub-user: ${{ secrets.DOCKER_USERNAME }}
-          dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
+          dockerhub-password: ${{ secrets.DOCKER_TOKEN }}
           command: quickview, cves
