@@ -1,12 +1,15 @@
 # Media Metadata Manager
 
 A powerful desktop + backend + DevOps project that extracts, stores, and manages video metadata — complete with GUI interface, logging, Dockerization, CI/CD, and monitoring.
+<img width="1157" height="857" alt="image (21)" src="https://github.com/user-attachments/assets/26d7c5cd-7e87-4752-8ac1-95055df96c4c" />
 
 ---
 
 ## Project Overview
 
 The **Media Metadata Manager** is a comprehensive, production-ready pipeline that allows users to:
+
+<img width="1200" height="1200" alt="Untitled design" src="https://github.com/user-attachments/assets/85c047bf-b521-4152-a464-c9ab58f6308b" />
 
 - Extract metadata from YouTube videos
 - Store it in a local SQLite database
@@ -17,6 +20,7 @@ The **Media Metadata Manager** is a comprehensive, production-ready pipeline tha
 - Build and test via **GitHub Actions CI/CD pipeline**
 
 This project demonstrates an end-to-end understanding of application development, DevOpsification, and observability.
+<img width="1861" height="618" alt="image (23)" src="https://github.com/user-attachments/assets/fd828b49-5acd-4ab3-8e01-1089f34354ec" />
 
 ---
 
